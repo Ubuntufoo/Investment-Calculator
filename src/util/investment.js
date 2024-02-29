@@ -10,7 +10,6 @@ export function calculateInvestmentResults({
   expectedReturn,
   duration,
 }) {
-  console.log("arg values in investments func:", initialInvestment, annualInvestment, expectedReturn, duration);
   const annualData = [];
   let investmentValue = initialInvestment;
 

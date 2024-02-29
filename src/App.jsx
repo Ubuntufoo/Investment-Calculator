@@ -10,13 +10,10 @@ import Output from './components/Output'
 function App() {
 
 
-  const dataRetrieval = () => {
-  }
-
   return (
     <>
       <Header />
-      <Form dataProcessing={dataRetrieval} />
+      <Form />
       <Output />
     </>
   )
