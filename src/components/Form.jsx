@@ -45,7 +45,7 @@ export default function Form({  }) {
 
   return (
     <section id="user-input">
-      <form className="input-group center">
+      <div className="input-group center">
         {keysArray &&
           keysArray.map((objKey, index) => {
             const formattedLabel = objKey.replace(/([A-Z])/g, " $1").trim();
@@ -68,7 +68,7 @@ export default function Form({  }) {
               </div>
             );
           })}
-      </form>
+      </div>
     </section>
   );
 }
