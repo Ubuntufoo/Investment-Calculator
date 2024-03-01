@@ -1,8 +1,8 @@
 // child component of App.jsx displaying a form with
 // inputs for user investment data. It will collect data
-// in state and pass to App.jsx for processing.
+// in state and pass to App.jsx for processing
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { formatter, calculateInvestmentResults } from "../util/investment";
 
 export default function Form({ collectData }) {
@@ -17,7 +17,6 @@ export default function Form({ collectData }) {
 
   const processData = () => {
     const investmentResults = calculateInvestmentResults(userInputData);
-
     const formattedResults = investmentResults.map((result) => ({
       year: result.year,
       interest: formatter.format(result.interest),
@@ -28,21 +27,16 @@ export default function Form({ collectData }) {
   };
 
   const handleUserInput = (e) => {
-
     const { name: labelName, value: newValue } = e.target;
-    setUserInputData((prevState) => ({
-      ...prevState,
-      [labelName]: newValue,
+    setUserInputData((prevData) => ({
+      ...prevData,
+      [labelName]: +newValue,
     }));
-
-    if (
-      Object.values({ ...userInputData, [labelName]: Number(newValue) }).every(
-        (value) => value !== ""
-      ))
-    {
-      processData();
-    }
   };
+
+  useEffect(() => {
+    processData();
+  }, [userInputData]);
 
   return (
     <section id="user-input">

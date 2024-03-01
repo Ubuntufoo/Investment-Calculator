@@ -3,8 +3,8 @@
 
 export default function Output({ outputData }) {
   return (
-    <div>
-      <table id='result'>
+    <section>
+      <table id="result">
         <thead>
           <tr>
             <th>Year</th>
@@ -14,16 +14,16 @@ export default function Output({ outputData }) {
           </tr>
         </thead>
         <tbody>
-          {outputData.map((dataItem, index) => (
-            <tr key={index}>
-              <td>{dataItem.year}</td>
-              <td>{dataItem.interest}</td>
-              <td>{dataItem.valueEndOfYear}</td>
-              <td>{dataItem.annualInvestment}</td>
+          {outputData.map((rowData) => (
+            <tr key={rowData.year}>
+              <td>{rowData.year}</td>
+              <td>{rowData.interest}</td>
+              <td>{rowData.valueEndOfYear}</td>
+              <td>{rowData.annualInvestment}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </section>
   );
 }
