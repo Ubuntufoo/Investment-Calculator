@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { formatter, calculateInvestmentResults } from "../util/investment";
 
-export default function Form({  }) {
+export default function Form({ collectData }) {
   const [userInputData, setUserInputData] = useState({
     initialInvestment: 10000,
     annualInvestment: 1000,
@@ -24,9 +24,11 @@ export default function Form({  }) {
       valueEndOfYear: formatter.format(result.valueEndOfYear),
       annualInvestment: formatter.format(result.annualInvestment),
     }));
+    collectData(formattedResults);
   };
 
   const handleUserInput = (e) => {
+
     const { name: labelName, value: newValue } = e.target;
     setUserInputData((prevState) => ({
       ...prevState,
@@ -36,9 +38,8 @@ export default function Form({  }) {
     if (
       Object.values({ ...userInputData, [labelName]: Number(newValue) }).every(
         (value) => value !== ""
-      )
-    ) {
-      console.log("userInputData right before formatting:", userInputData);
+      ))
+    {
       processData();
     }
   };
@@ -63,7 +64,7 @@ export default function Form({  }) {
                   id={objKey}
                   name={objKey}
                   value={userInputData[objKey]}
-                  onChange={(e) => handleUserInput(e)}
+                  onChange={handleUserInput}
                 />
               </div>
             );

@@ -66,22 +66,24 @@ body {
 
 #result {
   max-width: 50rem;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: auto;
   table-layout: fixed;
   border-spacing: 1rem;
   text-align: right;
+
 }
 
 #result thead {
-  font-size: 0.7rem;
-  color: #83e6c0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 #result tbody {
+  text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.85rem;
-  color: #c2e9e0;
+  font-size: 1rem;
+  color: #30b395;
 }
 
 .center {
